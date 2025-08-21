@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 
-function Dashboard() {
+function Orders() {
   return (
     <>
-      <h1>Dashboard Component</h1>
+      <h2>Orders Component</h2>
       <Outlet />
     </>
   );
 }
 
-export default Dashboard;
+export default Orders;

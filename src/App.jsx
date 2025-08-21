@@ -6,6 +6,8 @@ import NotFound from "./components/NotFound";
 import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
+import Customers from "./components/Customers";
+import Orders from "./components/Orders";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,24 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <Dashboard />
+      </>
+    ),
+  },
+  {
+    path: "/customers",
+    element: (
+      <>
+        <Navbar />
+        <Customers />
+      </>
+    ),
+  },
+  {
+    path: "/orders",
+    element: (
+      <>
+        <Navbar />
+        <Orders />
       </>
     ),
   },
