@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
 import Customers from "./components/Customers";
 import Orders from "./components/Orders";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -23,27 +24,45 @@ const router = createBrowserRouter([
     element: (
       <>
         <Navbar />
-        <Dashboard />
+        <ProtectedRoute />,
       </>
     ),
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+    ],
   },
   {
     path: "/customers",
     element: (
       <>
         <Navbar />
-        <Customers />
+        <ProtectedRoute />,
       </>
     ),
+    children: [
+      {
+        index: true,
+        element: <Customers />,
+      },
+    ],
   },
   {
     path: "/orders",
     element: (
       <>
         <Navbar />
-        <Orders />
+        <ProtectedRoute />,
       </>
     ),
+    children: [
+      {
+        index: true,
+        element: <Orders />,
+      },
+    ],
   },
   {
     path: "*",

@@ -17,7 +17,6 @@ function AuthProvider({ children }) {
       setIsAuthenticated(false);
     } catch (error) {
       console.error("Logout error:", error);
-      setIsAuthenticated(false);
     }
   };
 

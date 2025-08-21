@@ -16,9 +16,8 @@ function Signup() {
     setServerError("");
     try {
       const response = await axios.post("/api/v1/auth/register", {
-        fullName: data.fullname,
-        gender: data.gender,
-        dob: data.dob,
+        first_name: data.first_name,
+        last_name: data.last_name ? data.last_name : null,
         username: data.username,
         password: data.password,
       });
@@ -50,10 +49,10 @@ function Signup() {
     <div className="flex min-h-screen items-center justify-center bg-gray-900 px-4">
       <div className="w-full max-w-md bg-gray-800 rounded-lg shadow-lg p-6">
         <h2 className="text-2xl font-bold text-white text-center mb-2">
-          EXPENSE TRACKER
+          Order Management System
         </h2>
         <h2 className="text-xl font-semibold text-white text-center mb-6">
-          Create New Account
+          Admin Signup
         </h2>
         {serverError && (
           <p className="mb-4 text-red-400 text-sm text-center">{serverError}</p>
@@ -61,66 +60,33 @@ function Signup() {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="flex flex-col space-y-1">
             <label
-              htmlFor="fullname"
+              htmlFor="first_name"
               className="text-sm font-medium text-gray-200"
             >
-              Full Name
+              First Name
             </label>
             <input
-              id="fullname"
+              id="first_name"
               type="text"
-              {...register("fullname", { required: true })}
+              {...register("first_name", { required: true })}
               className="w-full rounded-md bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
-            {errors.fullname && (
-              <p className="text-red-400 text-sm">Full Name is required</p>
+            {errors.first_name && (
+              <p className="text-red-400 text-sm">First Name is required</p>
             )}
           </div>
 
           <div className="flex flex-col space-y-1">
             <label
-              htmlFor="gender"
+              htmlFor="last_name"
               className="text-sm font-medium text-gray-200"
             >
-              Gender
-            </label>
-            <div className="flex items-center space-x-4">
-              <label className="text-sm font-medium text-gray-200 flex items-center space-x-1">
-                <input
-                  type="radio"
-                  value="Male"
-                  {...register("gender", {
-                    required: "Please select an option",
-                  })}
-                />
-                <span>Male</span>
-              </label>
-              <label className="text-sm font-medium text-gray-200 flex items-center space-x-1">
-                <input
-                  type="radio"
-                  value="Female"
-                  {...register("gender", {
-                    required: "Please select an option",
-                  })}
-                />
-                <span>Female</span>
-              </label>
-            </div>
-            {errors.gender && (
-              <span className="font-normal italic text-red-500">
-                {errors.gender.message}
-              </span>
-            )}
-          </div>
-
-          <div className="flex flex-col space-y-1">
-            <label htmlFor="dob" className="text-sm font-medium text-gray-200">
-              Date of Birth (Optional)
+              Last Name (Optional)
             </label>
             <input
-              id="dob"
-              type="date"
-              {...register("dob")}
+              id="last_name"
+              type="text"
+              {...register("last_name")}
               className="w-full rounded-md bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
@@ -167,7 +133,7 @@ function Signup() {
               type="submit"
               className="w-full rounded-md bg-indigo-500 px-3 py-2 text-white font-semibold hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
-              Create Account
+              Signup As Admin
             </button>
           </div>
         </form>

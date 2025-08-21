@@ -18,7 +18,7 @@ function Login() {
         });
         if (response.data.success) {
           setIsAuthenticated(true);
-          if (isAuthenticated) navigate("/home");
+          if (isAuthenticated) navigate("/dashboard");
         } else {
           setIsAuthenticated(false);
         }
@@ -52,7 +52,7 @@ function Login() {
 
       if (response.data.success) {
         await login();
-        navigate("/home");
+        navigate("/dashboard");
       }
     } catch (error) {
       if (error.response) {
@@ -81,7 +81,7 @@ function Login() {
           Order Management System
         </h2>
         <h2 className="text-2xl font-bold text-white text-center mb-8">
-          Sign in to your account
+          Sign in as Admin
         </h2>
 
         {serverError && (
