@@ -4,6 +4,8 @@ import Login from "./components/Login";
 import AuthProvider from "./components/AuthProvider";
 import NotFound from "./components/NotFound";
 import Signup from "./components/Signup";
+import Navbar from "./components/Navbar";
+import Dashboard from "./components/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,15 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <>
+        <Navbar />
+        <Dashboard />
+      </>
+    ),
   },
   {
     path: "*",
